@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.latest {
+  width: 90%;
+  max-width: 80rem;
+  margin: $size8 auto;
+
+  h2 {
+    font-size:  $size8;
+    color: $grey800;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      font-size:  $size16;
+    }
+  }
+}

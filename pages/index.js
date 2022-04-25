@@ -1,3 +1,11 @@
+import { Fragment } from 'react'
+
+import Hero from '../components/homePage/hero'
+
 export default function Home() {
-  return (<p>Welcome to NextJS Blog</p>)
+  return (
+    <Fragment>
+      <Hero />
+    </Fragment>
+  )
 }
