@@ -1,0 +1,18 @@
+@import '../../styles//variables.scss';
+
+
+.posts {
+  width: 90%;
+  max-width: 60rem;
+  margin: $size8 auto;
+
+  h1 {
+    font-size: $size8;
+    color: $grey800;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      font-size: $size16;
+    }
+  }
+}
