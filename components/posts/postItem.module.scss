@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+.post {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  background-color: $grey800;
+  text-align: center;
+
+  a {
+    color: $grey100;
+  }
+}
+
+.image {
+  width: 100%;
+  max-height: 20rem;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.content {
+  padding: $size4;
+
+  h3 {
+    margin: $size2 0;
+    font-size: $size6;
+  }
+
+  time {
+    font-style: italic;
+    color: $grey300;
+  }
+
+  p {
+    line-height: $size6;
+  }
+}
