@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+.logo {
+  text-transform: uppercase;
+  font-size: $size5;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  color: $grey50;
+
+  @media (min-width: 768px) {
+    font-size: $size8;
+  }
+}
