@@ -1,0 +1,37 @@
+@import '../../styles/variables.scss';
+
+.header {
+  padding-bottom: $size8;
+  border-bottom: 8px solid $colorPrimary100;
+  margin: $size4 0;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  h1 {
+    font-size: $size8;
+    color: $colorPrimary500;
+    margin: 0;
+    line-height: initial;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      font-size: $size16;
+      text-align: left;
+    }
+  }
+
+  img {
+    object-fit: cover;
+    width: 200px;
+    height: 120px;
+  }
+
+  @media (min-width: 768px) {
+    margin: $size8 0;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}

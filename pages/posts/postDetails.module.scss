@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.content {
+  width: 95%;
+  max-width: 60rem;
+  margin: $size8 auto;
+  font-size: $size5;
+  line-height: $size8;
+  background-color: $grey100;
+  border-radius: 6px;
+  padding: $size4;
+
+  p {
+    color: $grey800;
+  }
+
+  .image {
+    margin: $size4 auto;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  @media (min-width: 768px) {
+    padding: $size8;
+  }
+}
