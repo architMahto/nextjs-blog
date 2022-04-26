@@ -1,3 +1,5 @@
+import ReactMarkdown from 'react-markdown'
+
 import PostHeader from '../../components/posts/postHeader'
 
 import classes from './postDetails.module.scss'
@@ -16,7 +18,7 @@ export default function PostDetails() {
   return (
     <article className={classes.content}>
       <PostHeader title={DUMMY_POST.title} image={imagePath} />
-      {DUMMY_POST.content}
+      <ReactMarkdown>{DUMMY_POST.content}</ReactMarkdown>
     </article>
   )
 }

@@ -1,7 +1,9 @@
 import { Fragment } from 'react'
-import FeaturedPosts from '../components/homePage/featuredPosts'
 
 import Hero from '../components/homePage/hero'
+import PostsGrid from '../components/posts/postsGrid'
+
+import classes from './home.module.scss'
 
 const DUMMY_POSTS = [
   {
@@ -38,7 +40,10 @@ export default function Home() {
   return (
     <Fragment>
       <Hero />
-      <FeaturedPosts posts={DUMMY_POSTS} />
+      <section className={classes.latest}>
+        <h2>Featured Posts</h2>
+        <PostsGrid posts={DUMMY_POSTS} />
+      </section>
     </Fragment>
   )
 }
