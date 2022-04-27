@@ -21,6 +21,7 @@ export function getAllPosts() {
   const allPosts = postFiles
     .map(postFile => getPostData(postFile))
     .sort((postA, postB) => postA.date > postB.date ? -1 : 1)
+    .map(postFile => ({...postFile, date: postFile.date.toString()}))
 
   return allPosts
 }
