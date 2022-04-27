@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { Fragment, useState, useEffect } from 'react'
+import Head from 'next/head'
 
 import Notification from '../../components/common/notification'
 
@@ -87,51 +88,57 @@ export default function Contact() {
   }
 
   return (
-    <section className={classes.contact}>
-      <h1>How can I help you?</h1>
-      <form className={classes.form} onSubmit={sendMessageHandler}>
-        <div className={classes.controls}>
-          <div className={classes.control}>
-            <label htmlFor='email'>Your Email</label>
-            <input
-              type='email'
-              id='email'
-              required
-              value={enteredEmail}
-              onChange={event => setEnteredEmail(event.target.value)}
-            />
+    <Fragment>
+      <Head>
+        <title>Contact Me</title>
+        <meta name="description" content="This page is used to send messages to me." />
+      </Head>
+      <section className={classes.contact}>
+        <h1>How can I help you?</h1>
+        <form className={classes.form} onSubmit={sendMessageHandler}>
+          <div className={classes.controls}>
+            <div className={classes.control}>
+              <label htmlFor='email'>Your Email</label>
+              <input
+                type='email'
+                id='email'
+                required
+                value={enteredEmail}
+                onChange={event => setEnteredEmail(event.target.value)}
+              />
+            </div>
+            <div className={classes.control}>
+              <label htmlFor='name'>Your Name</label>
+              <input
+                type='text'
+                id='name'
+                required
+                value={enteredName}
+                onChange={event => setEnteredName(event.target.value)}
+              />
+            </div>
           </div>
           <div className={classes.control}>
-            <label htmlFor='name'>Your Name</label>
-            <input
-              type='text'
-              id='name'
-              required
-              value={enteredName}
-              onChange={event => setEnteredName(event.target.value)}
+            <label htmlFor='message'>Your Message</label>
+            <textarea
+              id='message'
+              rows='5'
+              value={enteredMessage}
+              onChange={event => setEnteredMessage(event.target.value)}
             />
           </div>
-        </div>
-        <div className={classes.control}>
-          <label htmlFor='message'>Your Message</label>
-          <textarea
-            id='message'
-            rows='5'
-            value={enteredMessage}
-            onChange={event => setEnteredMessage(event.target.value)}
+          <div className={classes.actions}>
+            <button>Send Message</button>
+          </div>
+        </form>
+        {notification &&
+          <Notification
+            status={notification.status}
+            title={notification.title}
+            message={notification.message}
           />
-        </div>
-        <div className={classes.actions}>
-          <button>Send Message</button>
-        </div>
-      </form>
-      {notification &&
-        <Notification
-          status={notification.status}
-          title={notification.title}
-          message={notification.message}
-        />
-      }
-    </section>
+        }
+      </section>
+    </Fragment>
   )
 }
