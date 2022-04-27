@@ -1,5 +1,8 @@
+/* eslint-disable react/no-children-prop */
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 import PostHeader from '../../components/posts/postHeader'
 
@@ -19,7 +22,16 @@ export default function PostDetails(props) {
         width={600}
         height={300}
       />
-    )
+    ),
+    code: ({ className, children }) => {
+      return (
+        <SyntaxHighlighter
+          style={atomDark}
+          language={className.replace('language-', '')}
+          children={children[0]}
+        />
+      )
+    }
   }
 
   return (
