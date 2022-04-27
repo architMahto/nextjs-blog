@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 
 import PostHeader from '../../components/posts/postHeader'
@@ -10,10 +11,23 @@ export default function PostDetails(props) {
   const { postData: { title, slug, image, content} } = props
   const imagePath = `/images/posts/${slug}/${image}`
 
+  const customRenderers = {
+    img: ({ alt, src }) => (
+      <Image
+        src={`/images/posts/${slug}/${src}`}
+        alt={alt}
+        width={600}
+        height={300}
+      />
+    )
+  }
+
   return (
     <article className={classes.content}>
       <PostHeader title={title} image={imagePath} />
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <ReactMarkdown components={customRenderers}>
+        {content}
+      </ReactMarkdown>
     </article>
   )
 }
