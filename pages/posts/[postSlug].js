@@ -1,4 +1,6 @@
 /* eslint-disable react/no-children-prop */
+import { Fragment } from 'react'
+import Head from 'next/head'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -11,7 +13,7 @@ import { getPostData, getPostsFiles } from '../../utils/postsUtils'
 import classes from './postDetails.module.scss'
 
 export default function PostDetails(props) {
-  const { postData: { title, slug, image, content} } = props
+  const { postData: { title, slug, image, content, excerpt } } = props
   const imagePath = `/images/posts/${slug}/${image}`
 
   const customRenderers = {
@@ -35,12 +37,18 @@ export default function PostDetails(props) {
   }
 
   return (
-    <article className={classes.content}>
-      <PostHeader title={title} image={imagePath} />
-      <ReactMarkdown components={customRenderers}>
-        {content}
-      </ReactMarkdown>
-    </article>
+    <Fragment>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={excerpt} />
+      </Head>
+      <article className={classes.content}>
+        <PostHeader title={title} image={imagePath} />
+        <ReactMarkdown components={customRenderers}>
+          {content}
+        </ReactMarkdown>
+      </article>
+    </Fragment>
   )
 }
 

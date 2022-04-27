@@ -14,7 +14,7 @@ export default function AllPosts(props) {
     <Fragment>
       <Head>
         <title>All Posts</title>
-        <meta name="description" content="This page is used to send messages to me." />
+        <meta name="description" content="A list of all programming related tutorials and posts." />
       </Head>
       <section className={classes.posts}>
         <h1>All Posts</h1>
