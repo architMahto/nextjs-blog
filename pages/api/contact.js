@@ -17,9 +17,7 @@ export default async function handler(req, res) {
     }
 
     let client
-    const MONGODB_USERNAME = 'mongoadmin'
-    const MONGODB_PASSWORD = 'testadmin1'
-    const MONGODB_DATABASE = 'nextjs-blog'
+    const { MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_DATABASE } = process.env
     const MONGODB_URL = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.03r3c.mongodb.net/${MONGODB_DATABASE}?retryWrites=true&w=majority`
 
     try {
